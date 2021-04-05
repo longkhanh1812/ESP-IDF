@@ -9,6 +9,8 @@
 #include "nvs.h"
 #include "nvs_flash.h"
 #include "gatts_demo.h"
+#include "http_server.h"
+
 
 const char *TAG = "ESP32_MAIN_APP" ;
 
@@ -16,7 +18,7 @@ const char *TAG = "ESP32_MAIN_APP" ;
 
 void app_main(void)
 {
-   
+     
     err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         // NVS partition was truncated and needs to be erased
@@ -36,11 +38,12 @@ void app_main(void)
         switch(err)
         {
             case ESP_OK : 
-                test_ble();
-                config_gpio();
+                // test_ble();
+                // config_gpio();
                 get_set_pro_wifi();
                 wifi_init_sta();
-                taskmqtt();
+                start_webserver();
+                // taskmqtt();
                 break;
             case ESP_ERR_NVS_NOT_FOUND:
                 init_smartwifi();

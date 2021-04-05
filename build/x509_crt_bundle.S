@@ -1,4 +1,4 @@
-/* * Data converted from /home/lkhanh99/Desktop/wifi_mqtt_GPIO/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

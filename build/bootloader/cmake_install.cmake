@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/lkhanh99/Desktop/wifi_mqtt_GPIO/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/home/lkhanh99/Desktop/IOT_Grat/build/bootloader/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/lkhanh99/Desktop/wifi_mqtt_GPIO/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lkhanh99/Desktop/IOT_Grat/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

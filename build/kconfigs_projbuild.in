@@ -3,4 +3,4 @@ source "/home/lkhanh99/Desktop/esp/esp-idf/components/bootloader/Kconfig.projbui
 source "/home/lkhanh99/Desktop/esp/esp-idf/components/esp_rom/Kconfig.projbuild"
 source "/home/lkhanh99/Desktop/esp/esp-idf/components/esptool_py/Kconfig.projbuild"
 source "/home/lkhanh99/Desktop/esp/esp-idf/components/partition_table/Kconfig.projbuild"
-source "/home/lkhanh99/Desktop/wifi_mqtt_GPIO/main/Kconfig.projbuild"
+source "/home/lkhanh99/Desktop/IOT_Grat/main/Kconfig.projbuild"

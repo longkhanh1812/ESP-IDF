@@ -1,4 +1,4 @@
-# Install script for directory: /home/lkhanh99/Desktop/wifi_mqtt_GPIO/components/gpio_driver
+# Install script for directory: /home/lkhanh99/Desktop/IOT_Grat/components/gpio_driver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
