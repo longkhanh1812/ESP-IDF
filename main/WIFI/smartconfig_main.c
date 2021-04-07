@@ -13,6 +13,9 @@
 #include "esp_smartconfig.h"
 #include "smartconfig_main.h"
 
+#include "str_data.h"
+
+
 
 /* FreeRTOS event group to signal when we are connected & ready to make a request */
 static EventGroupHandle_t s_wifi_event_group;
@@ -46,7 +49,7 @@ static void event_handler(void* arg, esp_event_base_t event_base,
         smartconfig_event_got_ssid_pswd_t *evt = (smartconfig_event_got_ssid_pswd_t *)event_data;
         wifi_config_t wifi_config;
         
-        uint8_t rvd_data[33] = { 0 };
+    
 
         bzero(&wifi_config, sizeof(wifi_config_t));
         memcpy(wifi_config.sta.ssid, evt->ssid, sizeof(wifi_config.sta.ssid));
@@ -56,31 +59,24 @@ static void event_handler(void* arg, esp_event_base_t event_base,
             memcpy(wifi_config.sta.bssid, evt->bssid, sizeof(wifi_config.sta.bssid));
         }
 
-        memcpy(ssid_WF, evt->ssid, sizeof(evt->ssid));
-        memcpy(password_WF, evt->password, sizeof(evt->password));
-        required_size_SSID= sizeof(evt->ssid);
-        required_size_PSSWD = sizeof(evt->password);
-        ESP_LOGI(TAG, "SSID:%s", ssid_WF);
-        ESP_LOGI(TAG, "PASSWORD:%s", password_WF);
+        memcpy(NVS_data.ssid_WF, evt->ssid, sizeof(evt->ssid));
+        memcpy(NVS_data.password_WF, evt->password, sizeof(evt->password));
+        NVS_data.required_size_SSID= sizeof(evt->ssid);
+        NVS_data.required_size_PSSWD = sizeof(evt->password);
+        ESP_LOGI(TAG, "SSID:%s", NVS_data.ssid_WF);
+        ESP_LOGI(TAG, "PASSWORD:%s", NVS_data.password_WF);
         printf("Update NVS SSID and PASSWORD");
-        err = nvs_set_str(my_handle, "SSID", (char *)ssid_WF);
+        err = nvs_set_str(my_handle, "SSID", (char *)NVS_data.ssid_WF);
         printf((err != ESP_OK) ? "Failed!\n" : "Done SSID\n");
-        err = nvs_set_str(my_handle, "PASSWORD", (char *)password_WF);
+        err = nvs_set_str(my_handle, "PASSWORD", (char *)NVS_data.password_WF);
         printf((err != ESP_OK) ? "Failed!\n" : "Done PASSWORD\n");
-        err = nvs_set_i32(my_handle, "sizeS", required_size_SSID);
+        err = nvs_set_i32(my_handle, "sizeS", NVS_data.required_size_SSID);
         printf((err != ESP_OK) ? "Failed!\n" : "Done SSID REQUIRED\n");
-        err = nvs_set_i32(my_handle, "sizeP", required_size_PSSWD);
+        err = nvs_set_i32(my_handle, "sizeP", NVS_data.required_size_PSSWD);
         printf((err != ESP_OK) ? "Failed!\n" : "Done PSSWD REQUIRED\n");
         err = nvs_commit(my_handle);
         printf((err != ESP_OK) ? "Failed!\n" : "Done COMMIT\n");
-        if (evt->type == SC_TYPE_ESPTOUCH_V2) {
-            ESP_ERROR_CHECK( esp_smartconfig_get_rvd_data(rvd_data, sizeof(rvd_data)) );
-            ESP_LOGI(TAG, "RVD_DATA:");
-            for (int i=0; i<33; i++) {
-                printf("%02x ", rvd_data[i]);
-            }
-            printf("\n");
-        }
+        
 
         ESP_ERROR_CHECK( esp_wifi_disconnect() );
         ESP_ERROR_CHECK( esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
