@@ -31,9 +31,11 @@ void app_main(void)
     printf("Opening Non-Volatile Storage (NVS) handle...\n");
     
     err = nvs_open("storage", NVS_READWRITE, &my_handle);
+
     if (err != ESP_OK) {
         printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
     } else {
+        get_set_pro_wifi();
         err = nvs_get_i32(my_handle, "STT_WFSCF", &status_SMTCF);
         switch(err)
         {
