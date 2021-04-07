@@ -16,7 +16,7 @@ const char *TAG = "ESP32_MAIN_APP" ;
 
 void app_main(void)
 {
-   
+     nvs_flash_erase();
     err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         // NVS partition was truncated and needs to be erased

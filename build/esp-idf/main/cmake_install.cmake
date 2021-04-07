@@ -1,4 +1,4 @@
-# Install script for directory: /home/lkhanh99/Desktop/wifi_mqtt_GPIO/main
+# Install script for directory: /home/lkhanh99/Desktop/IOT_Grat/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
