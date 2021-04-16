@@ -627,13 +627,6 @@
 /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/wifi_provisioning/CMakeFiles/rebuild_cache.dir
 /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/wifi_provisioning/CMakeFiles/list_install_components.dir
 /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/wifi_provisioning/CMakeFiles/install/local.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/install/strip.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/edit_cache.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/rebuild_cache.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/list_install_components.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/__idf_gpio_driver.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/install/local.dir
-/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/CMakeFiles/install.dir
 /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/main/CMakeFiles/edit_cache.dir
 /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/main/CMakeFiles/install/strip.dir
 /home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/main/CMakeFiles/__idf_main.dir

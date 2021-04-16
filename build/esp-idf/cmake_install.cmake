@@ -111,7 +111,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/tinyusb/cmake_install.cmake")
   include("/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/ulp/cmake_install.cmake")
   include("/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/wifi_provisioning/cmake_install.cmake")
-  include("/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/gpio_driver/cmake_install.cmake")
   include("/home/lkhanh99/Desktop/IOT_Grat/build/esp-idf/main/cmake_install.cmake")
 
 endif()

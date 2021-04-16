@@ -23,6 +23,8 @@
 #include "esp_bt_main.h"
 #include "esp_gatt_common_api.h"
 #include "wifi_main.h"
+
+#include "str_data.h"
 #define EXAMPLE_ESP_WIFI_SSID      CONFIG_ESP_WIFI_SSID
 #define EXAMPLE_ESP_WIFI_PASS      CONFIG_ESP_WIFI_PASSWORD
 #define EXAMPLE_ESP_MAXIMUM_RETRY  CONFIG_ESP_MAXIMUM_RETRY
@@ -97,8 +99,8 @@ void wifi_init_sta(void)
             },
         },
     };
-    strcpy((char *)wifi_config.sta.ssid,(char *)ssid_WF);
-    strcpy((char *)wifi_config.sta.password,(char *)password_WF);
+    strcpy((char *)wifi_config.sta.ssid,(char *)NVS_data.ssid_WF);
+    strcpy((char *)wifi_config.sta.password,(char *)NVS_data.password_WF);
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
     ESP_ERROR_CHECK(esp_wifi_start() );

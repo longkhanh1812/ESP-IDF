@@ -119,13 +119,13 @@ static void smartconfig_example_task(void * parm)
         if(uxBits & ESPTOUCH_DONE_BIT) {
             int32_t status_next =1;
             
-            size_t rq_SSID = required_size_SSID;
-            size_t rq_PSSWD = required_size_PSSWD;
-            err = nvs_get_str(my_handle, "SSID", (char *)ssid_WF,&rq_SSID);
-            err = nvs_get_str(my_handle, "PASSWORD", (char *)password_WF,&rq_PSSWD);
+            size_t rq_SSID = NVS_data.required_size_SSID;
+            size_t rq_PSSWD = NVS_data.required_size_PSSWD;
+            err = nvs_get_str(my_handle, "SSID", (char *)NVS_data.ssid_WF,&rq_SSID);
+            err = nvs_get_str(my_handle, "PASSWORD", (char *)NVS_data.password_WF,&rq_PSSWD);
             printf((err != ESP_OK) ? "Failed!\n" : "Done get\n");
-            ESP_LOGI(TAG, "SSID:%s", ssid_WF);
-            ESP_LOGI(TAG, "PASSWORD:%s", password_WF);
+            ESP_LOGI(TAG, "SSID:%s", NVS_data.ssid_WF);
+            ESP_LOGI(TAG, "PASSWORD:%s", NVS_data.password_WF);
             ESP_LOGI(TAG, "smartconfig over");
             err = nvs_set_i32(my_handle, "STT_WFSCF", status_next);
             printf((err != ESP_OK) ? "Failed!\n" : "Done status\n");
@@ -137,18 +137,4 @@ static void smartconfig_example_task(void * parm)
     }
 }
 
-void get_set_pro_wifi(void)
-{
-        err = nvs_get_i32(my_handle, "sizeS", &required_size_SSID);
-        printf((err != ESP_OK) ? "Failed!\n" : "Done SSID REQUIRED\n");
-        err = nvs_get_i32(my_handle, "sizeP", &required_size_PSSWD);
-        printf((err != ESP_OK) ? "Failed!\n" : "Done PSSWD REQUIRED\n");
-        size_t rq_SSID = required_size_SSID;
-        size_t rq_PSSWD = required_size_PSSWD;
-        err = nvs_get_str(my_handle, "SSID", (char *)ssid_WF,&rq_SSID);
-        err = nvs_get_str(my_handle, "PASSWORD", (char *)password_WF,&rq_PSSWD);
-        ESP_LOGI(TAG, "SSID:%s", ssid_WF);
-        ESP_LOGI(TAG, "PASSWORD:%s", password_WF);
-        ESP_LOGI(TAG, "smartconfig over");
-}
 

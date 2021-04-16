@@ -4,5 +4,7 @@ idf_component_register(SRCS  "BLE/gatts_demo.c"
                               "ESP32_main.c" 
                               "WIFI/smartconfig_main.c"
                               "HTTP/http_server.c"
+                              "str_data/str_data.c"
+                              "GPIO/gpio_cf_dv.c"
                     INCLUDE_DIRS "library"
                    )
